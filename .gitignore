@@ -1,0 +1,10 @@
+.idea/*
+backup/*
+tmux/*
+docs/*
+
+data
+wandb
+__pycache__
+temp*
+*.pth

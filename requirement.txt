@@ -1,0 +1,2 @@
+monai
+monai-weakly

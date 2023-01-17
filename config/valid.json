@@ -1,0 +1,29 @@
+{
+  "data_dir": {
+    "chexpert": "data/classification/chest/cheXpert/CheXpert-v1.0-small/",
+    "nihchest": "data/classification/chest/nih/",
+    "ddsm": "data/classification/breast/DDSM",
+    "vindr":"data/classification/breast/VinDr",
+    "isic2018": "data/classification/skin/ISIC-2018",
+    "isic2019": "data/classification/skin/ISIC-2019",
+    "eyepacs": "data/classification/eye/EyePACS",
+    "messidor2": "data/classification/eye/MESSIDOR2",
+    "pcam": "data/classification/lymph/PatchCamelyon"
+  },
+  "isic2018_v1": {
+    "settings": {"dataset_type": "isic2018", "test_size": [224, 224], "center_crop_ptr": 0.875},
+    "model_weight": {
+      "convnext_tiny": "log/isic2018_v1_convnext_tiny_v1/best_weight.pth",
+      "convnext_small": "log/isic2018_v1_convnext_small_v1/best_weight.pth",
+      "convnext_base": "log/isic2018_v1_convnext_base_v1/best_weight.pth"
+    }
+  },
+  "isic2019_v1": {
+    "settings": {"dataset_type": "isic2019", "test_size": [224, 224], "center_crop_ptr": 0.875},
+    "model_weight": {
+      "convnext_tiny": "log/isic2019_v1_convnext_tiny_v2/best_weight.pth",
+      "convnext_small": "log/isic2019_v1_convnext_small_v2/best_weight.pth",
+      "convnext_base": "log/isic2019_v1_convnext_base_v2/best_weight.pth"
+    }
+  }
+}
