@@ -19,34 +19,7 @@ def register_dataset(fn):
 
 def get_dataset(args, mode):
     if mode == 'train':
-        # 1. define transforms
-        # train_transform = TrainTransform(
-        #     resize=args.train_size,
-        #     resize_mode=args.train_resize_mode,
-        #     gray_image=_dataset_dict[args.dataset_type].gray_images,
-        #     pad=args.random_crop_pad,
-        #     scale=args.random_crop_scale,
-        #     ratio=args.random_crop_ratio,
-        #     hflip=args.hflip,
-        #     vflip=args.vflip,
-        #     auto_aug=args.auto_aug,
-        #     random_affine=args.random_affine,
-        #     remode=args.remode,
-        #     interpolation=args.interpolation,
-        #     mean=args.mean,
-        #     std=args.std
-        # )
-        # val_transform = ValTransform(
-        #     size=args.test_size,
-        #     resize_mode=args.test_resize_mode,
-        #     gray_image=_dataset_dict[args.dataset_type].gray_images,
-        #     crop_ptr=args.center_crop_ptr,
-        #     interpolation=args.interpolation,
-        #     mean=args.mean,
-        #     std=args.std
-        # )
-
-        # 2. define datasets
+        # define datasets
         dataset_class = _dataset_dict[args.dataset_type]
         if args.dataset_type in _dataset_dict.keys():
             train_dataset = dataset_class(
@@ -66,27 +39,17 @@ def get_dataset(args, mode):
         return train_dataset, val_dataset
 
     else:
-        # val_transform = ValTransform(
-        #     size=args.test_size,
-        #     resize_mode=args.test_resize_mode,
-        #     gray_image=_dataset_dict[args.dataset_type].gray_images,
-        #     crop_ptr=args.center_crop_ptr,
-        #     interpolation=args.interpolation,
-        #     mean=args.mean,
-        #     std=args.std
-        # )
-
-        # 2. define datasets
+        # define datasets
         dataset_class = _dataset_dict[args.dataset_type]
         if args.dataset_type in _dataset_dict.keys():
             val_dataset = dataset_class(
                 root=args.data_dir,
-                mode=mode,
+                mode='valid',
             )
-            args.num_classes = 1 if val_dataset.task == 'binary' else len(val_dataset.classes)
-            args.task = val_dataset.task
-            args.num_labels = val_dataset.num_labels
-
+            # args.num_classes = 1 if val_dataset.task == 'binary' else len(val_dataset.classes)
+            # args.task = val_dataset.task
+            # args.num_labels = val_dataset.num_labels
+            args.num_classes = train_dataset.classes
             val_dataloader = DataLoader(val_dataset, batch_size=args.batch_size, shuffle=False,
                                 num_workers=args.num_workers, collate_fn=None, pin_memory=False)
         else:

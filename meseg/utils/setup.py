@@ -64,7 +64,16 @@ def init_distributed_mode(args):
     args.device = torch.device(f'cuda:{args.gpu}')
 
 
+def close_previous_logger():
+    logger = logging.getLogger()
+    handlers = logger.handlers[:]
+    for handler in handlers:
+        logger.removeHandler(handler)
+        handler.close()
+
+
 def make_logger(log_file_path):
+    close_previous_logger()
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
     formatter = logging.Formatter("%(asctime)s | %(message)s", "[%Y/%m/%d %H:%M]")
@@ -85,7 +94,6 @@ def make_logger(log_file_path):
 def log(msg, metric=False, logger=None):
     if logger:
         if metric:
-            msg = {k:v.item() if isinstance(v,torch.Tensor) else v for k,v in msg.items()}
             wandb.log(msg)
         else:
             logger.info(msg)

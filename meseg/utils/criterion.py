@@ -113,11 +113,10 @@ def get_criterion_scaler(args):
     elif args.criterion in ['mse', 'l2']:
         criterion = MSELoss()
     elif args.criterion in ['dicece', 'diceceloss']:
-        if args.model_name in ["UNETR"]:
-            criterion = monaiDiceCELoss(to_onehot_y=True, softmax=True)
-        else:
-            criterion = DiceCELoss(args.num_classes, 0.5, softmax=True)
-
+        # if args.model_name in ["UNETR"]:
+        criterion = monaiDiceCELoss(to_onehot_y=True, softmax=True)
+        # else:
+        #     criterion = DiceCELoss(args.num_classes, 0.5, softmax=True)
     if args.amp:
         scaler = NativeScalerWithGradAccum()
     else:

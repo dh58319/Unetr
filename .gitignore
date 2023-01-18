@@ -8,3 +8,4 @@ wandb
 __pycache__
 temp*
 *.pth
+check

@@ -9,12 +9,14 @@ from meseg.utils.setup import print_batch_run_settings
 from meseg.utils import setup, clear, get_optimizer_and_scheduler, get_criterion_scaler, \
     print_meta_data, load_model_list_from_config, get_args_with_setting
 
+
+
 import warnings
 warnings.filterwarnings("ignore")
 
 def get_args_parser():
     parser = argparse.ArgumentParser(
-        description='pytorch jaejung\'s framework',
+        description='Medical Study',
         add_help=True,
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
@@ -30,11 +32,11 @@ def get_args_parser():
         help='settings used for default value'
     )
     setup.add_argument(
-        '--entity', type=str, default='jaejungscene',
+        '--entity', type=str, default='medical-study',
         help='project space used for wandb logger'
     )
     setup.add_argument(
-        '-proj', '--project-name', type=str, default='MESEG',
+        '-proj', '--project-name', type=str, default='jaejung',
         help='project name used for wandb logger'
     )
     setup.add_argument(
@@ -382,8 +384,6 @@ def run(args):
             global_step=global_step,
             max_iter=args.max_iter
         )
-        torch.save(model.state_dict(), os.path.join(args.exp_name, "best_metric_model.pth"))
-
 
 if __name__ == '__main__':
     # 1. parse command

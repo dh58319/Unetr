@@ -31,18 +31,10 @@ def get_dataloader(train_dataset, val_dataset, args):
         collate_fn = None
 
     # 3. create dataloader
-    if args.model_name in ["UNETR"]:
-        train_dataloader = monaiDataLoader(train_dataset, batch_size=args.batch_size, 
-                                           shuffle=True, num_workers=args.num_workers)
-        val_dataloader = monaiDataLoader(val_dataset, batch_size=args.batch_size,
-                                         shuffle=True, num_workers=args.num_workers)
-    else:
-        train_dataloader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=False, sampler=train_sampler,
-                                      num_workers=args.num_workers, collate_fn=collate_fn, pin_memory=args.pin_memory,
-                                      drop_last=args.drop_last)
-        val_dataloader = DataLoader(val_dataset, batch_size=1 if args.exp_name.split("_")[0]=="btcv" else args.batch_size, 
-                                    shuffle=False, sampler=val_sampler,
-                                    num_workers=args.num_workers, collate_fn=None, pin_memory=False)
+    train_dataloader = monaiDataLoader(train_dataset, batch_size=args.batch_size, 
+                                        shuffle=True, num_workers=args.num_workers)
+    val_dataloader = monaiDataLoader(val_dataset, batch_size=args.batch_size,
+                                        shuffle=True, num_workers=args.num_workers)
 
     args.iter_per_epoch = len(train_dataloader)
     return train_dataloader, val_dataloader
