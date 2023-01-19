@@ -89,7 +89,7 @@ def train_one_epoch_with_valid(
                 if scheduler:
                     scheduler.step()
 
-        loss_m.update(loss, batch_size)
+        loss_m.update(loss.detach().cpu().item(), batch_size)
         if args.print_freq and global_step % args.print_freq == 0:
             num_digits = len(str(total_iter))
             args.log(f"TRAIN(iter {global_step:03}): [{batch_idx:>{num_digits}}/{total_iter}] {batch_m} {data_m} {loss_m}")
@@ -118,6 +118,7 @@ def train_one_epoch_with_valid(
                     "train loss": loss_m.val.item(),
                     "valid mean Dice score": mean_dice_val
                 }, True)
+            args.log("-"*100)
 
         global_step += 1
     return global_step

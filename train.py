@@ -204,7 +204,7 @@ def get_args_parser():
         help='batch size'
     )
     data.add_argument(
-        '-j', '--num-workers', type=int, default=8,
+        '-j', '--num-workers', type=int, default=1,
         help='number of workers'
     )
     data.add_argument(
