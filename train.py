@@ -238,6 +238,10 @@ def get_args_parser():
         '--pretrained', action='store_true', default=False,
         help='load pretrained weight'
     )
+    model.add_argument(
+        '--mul-head', type=int, default=1,
+        help='multi head'
+    )
 
     # 4.optimizer & scheduler & criterion
     optimizer = parser.add_argument_group('optimizer')
@@ -362,7 +366,7 @@ def run(args):
     # 3. load optimizer, scheduler, criterion
     optimizer, scheduler = get_optimizer_and_scheduler(model, args)
     criterion, scaler = get_criterion_scaler(args)
-
+    scheduler = None
     # 4. train model
     print_meta_data(model, train_dataset, valid_dataset, args)
 

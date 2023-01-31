@@ -115,7 +115,7 @@ def train_one_epoch_with_valid(
                     
             if args.use_wandb:
                 args.log({
-                    "train loss": loss_m.val.item(),
+                    "train loss": loss_m.val,
                     "valid mean Dice score": mean_dice_val
                 }, True)
             args.log("-"*100)

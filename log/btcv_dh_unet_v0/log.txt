@@ -1,0 +1,102 @@
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:05] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 03:06] | ---------------------------------------------------------------------------------
+[2023/01/31 03:06] |                                    INFORMATION
+[2023/01/31 03:06] | ---------------------------------------------------------------------------------
+[2023/01/31 03:06] | Project Name              | donghyunkim
+[2023/01/31 03:06] | Project Administrator     | jaejung
+[2023/01/31 03:06] | Experiment Name           | btcv_dh_unet_v0
+[2023/01/31 03:06] | Experiment Start Time     | 2023-01-31 03:05:05
+[2023/01/31 03:06] | Experiment Model Name     | dh_unet
+[2023/01/31 03:06] | Experiment Log Directory  | log/btcv_dh_unet_v0
+[2023/01/31 03:06] | ---------------------------------------------------------------------------------
+[2023/01/31 03:06] |                                 EXPERIMENT SETUP
+[2023/01/31 03:06] | ---------------------------------------------------------------------------------
+[2023/01/31 03:06] | train_size                | (224, 224)
+[2023/01/31 03:06] | test_size                 | (224, 224)
+[2023/01/31 03:06] | center_crop_ptr           | 0.875
+[2023/01/31 03:06] | interpolation             | bicubic
+[2023/01/31 03:06] | mean                      | (0.485, 0.456, 0.406)
+[2023/01/31 03:06] | std                       | (0.229, 0.224, 0.225)
+[2023/01/31 03:06] | hflip                     | 0.5
+[2023/01/31 03:06] | auto_aug                  | False
+[2023/01/31 03:06] | cutmix                    | None
+[2023/01/31 03:06] | mixup                     | None
+[2023/01/31 03:06] | remode                    | None
+[2023/01/31 03:06] | model_name                | dh_unet
+[2023/01/31 03:06] | lr                        | 0.0001
+[2023/01/31 03:06] | epoch                     | 100
+[2023/01/31 03:06] | criterion                 | dicece
+[2023/01/31 03:06] | optimizer                 | adamw
+[2023/01/31 03:06] | weight_decay              | 1e-05
+[2023/01/31 03:06] | scheduler                 | cosine
+[2023/01/31 03:06] | warmup_epoch              | 0
+[2023/01/31 03:06] | batch_size                | 1
+[2023/01/31 03:06] | ---------------------------------------------------------------------------------
+[2023/01/31 03:06] |                                   DATA & MODEL
+[2023/01/31 03:06] | ---------------------------------------------------------------------------------
+[2023/01/31 03:06] | Model Parameters(M)       | 146368334
+[2023/01/31 03:06] | Number of Train Examples  | 24
+[2023/01/31 03:06] | Number of Valid Examples  | 6
+[2023/01/31 03:06] | Number of Class           | 14
+[2023/01/31 03:06] | ---------------------------------------------------------------------------------
+[2023/01/31 03:06] | TRAIN(iter 000): [ 0/24] Batch: 0.0000 (0.0000) Data: 0.9048 (0.9048) Loss: 4.1785 (4.1785)
+[2023/01/31 03:08] | TRAIN(iter 100): [ 4/24] Batch: 5.6434 (3.8269) Data: 6.0178 (3.4146) Loss: 3.5740 (3.1382)

@@ -7,6 +7,7 @@ from torch.nn.parallel import DistributedDataParallel
 import monai.networks.nets as monai
 
 from .unetr import UNETR
+from .my_unetr import UNETR2
 from . import model_config
 
 def get_model(args):
@@ -27,6 +28,9 @@ def get_model(args):
 
     elif args.model_name == "unetr":
         model = UNETR(**model_config.UNETR()).cuda(args.device)
+        
+    elif args.model_name == "dh_unet":
+        model = UNETR2((96,96,96),1,14,mul_head=args.mul_head).cuda(args.device)
 
     else:
         raise Exception(f"{args.model_type} is not supported yet")

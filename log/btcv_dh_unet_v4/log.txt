@@ -1,0 +1,16 @@
+[2023/01/31 04:36] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 04:36] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 04:36] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 04:36] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 04:36] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 04:36] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 04:36] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 04:36] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 04:36] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 04:36] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 04:36] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 04:36] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 04:36] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 04:36] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 04:36] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/31 04:36] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1

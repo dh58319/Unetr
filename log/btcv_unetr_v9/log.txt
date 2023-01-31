@@ -1,0 +1,107 @@
+[2023/01/20 03:36] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:36] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:36] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:36] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | pixdim[0] (qfac) should be 1 (default) or -1; setting qfac to 1
+[2023/01/20 03:37] | ---------------------------------------------------------------------------------
+[2023/01/20 03:37] |                                    INFORMATION
+[2023/01/20 03:37] | ---------------------------------------------------------------------------------
+[2023/01/20 03:37] | Project Name              | donghyunkim
+[2023/01/20 03:37] | Project Administrator     | jaejung
+[2023/01/20 03:37] | Experiment Name           | btcv_unetr_v9
+[2023/01/20 03:37] | Experiment Start Time     | 2023-01-20 03:36:56
+[2023/01/20 03:37] | Experiment Model Name     | unetr
+[2023/01/20 03:37] | Experiment Log Directory  | log/btcv_unetr_v9
+[2023/01/20 03:37] | ---------------------------------------------------------------------------------
+[2023/01/20 03:37] |                                 EXPERIMENT SETUP
+[2023/01/20 03:37] | ---------------------------------------------------------------------------------
+[2023/01/20 03:37] | train_size                | (224, 224)
+[2023/01/20 03:37] | test_size                 | (224, 224)
+[2023/01/20 03:37] | center_crop_ptr           | 0.875
+[2023/01/20 03:37] | interpolation             | bicubic
+[2023/01/20 03:37] | mean                      | (0.485, 0.456, 0.406)
+[2023/01/20 03:37] | std                       | (0.229, 0.224, 0.225)
+[2023/01/20 03:37] | hflip                     | 0.5
+[2023/01/20 03:37] | auto_aug                  | False
+[2023/01/20 03:37] | cutmix                    | None
+[2023/01/20 03:37] | mixup                     | None
+[2023/01/20 03:37] | remode                    | None
+[2023/01/20 03:37] | model_name                | unetr
+[2023/01/20 03:37] | lr                        | 0.0001
+[2023/01/20 03:37] | epoch                     | 100
+[2023/01/20 03:37] | criterion                 | dicece
+[2023/01/20 03:37] | optimizer                 | adamw
+[2023/01/20 03:37] | weight_decay              | 1e-05
+[2023/01/20 03:37] | scheduler                 | cosine
+[2023/01/20 03:37] | warmup_epoch              | 0
+[2023/01/20 03:37] | batch_size                | 1
+[2023/01/20 03:37] | ---------------------------------------------------------------------------------
+[2023/01/20 03:37] |                                   DATA & MODEL
+[2023/01/20 03:37] | ---------------------------------------------------------------------------------
+[2023/01/20 03:37] | Model Parameters(M)       | 92452270
+[2023/01/20 03:37] | Number of Train Examples  | 24
+[2023/01/20 03:37] | Number of Valid Examples  | 6
+[2023/01/20 03:37] | Number of Class           | 14
+[2023/01/20 03:37] | ---------------------------------------------------------------------------------
+[2023/01/20 03:37] | TRAIN(iter 000): [ 0/24] Batch: 0.0000 (0.0000) Data: 0.9705 (0.9705) Loss: 3.4134 (3.4134)
+[2023/01/20 03:38] | TRAIN(iter 100): [ 4/24] Batch: 2.5029 (1.8840) Data: 2.5999 (1.7760) Loss: 2.6914 (2.7391)
+[2023/01/20 03:39] | TRAIN(iter 200): [ 8/24] Batch: 4.0416 (2.5751) Data: 4.1449 (2.4623) Loss: 2.4669 (2.4887)
+[2023/01/20 03:40] | TRAIN(iter 300): [12/24] Batch: 6.0508 (3.5644) Data: 6.1327 (3.4601) Loss: 2.7242 (2.2936)
+[2023/01/20 03:40] | TRAIN(iter 400): [16/24] Batch: 7.2370 (4.1912) Data: 7.3165 (4.0743) Loss: 2.1014 (2.1743)
+[2023/01/20 03:41] | TRAIN(iter 500): [20/24] Batch: 8.9152 (5.0036) Data: 8.9761 (4.8880) Loss: 2.0510 (2.0236)
+[2023/01/20 03:41] | Model Was Saved ! Current Best Avg. Dice: 0.09710800647735596 Current Avg. Dice: 0.09710800647735596
