@@ -74,9 +74,10 @@ class SelfAttention(nn.Module):
         self.mul_head = mul_head
         if self.mul_head > 1:
             self.conv_attn = nn.Sequential(
-                nn.Conv2d(in_channels=num_heads,out_channels=num_heads*mul_head, kernel_size=3,padding=1), 
-                nn.ReLU(),   
-                nn.Conv2d(in_channels=num_heads*mul_head ,out_channels=num_heads, kernel_size=3,padding=1),              
+                nn.Conv2d(in_channels=num_heads,out_channels=num_heads*mul_head, kernel_size=1),
+                nn.ReLU(inplace=True),
+                nn.BatchNorm2d(num_features=num_heads*mul_head),
+                nn.Conv2d(in_channels=num_heads*mul_head ,out_channels=num_heads, kernel_size=1),
             )
 
     def transpose_for_scores(self, x):
