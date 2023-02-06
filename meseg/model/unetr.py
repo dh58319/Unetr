@@ -14,9 +14,11 @@ from typing import Tuple, Union
 import torch
 import torch.nn as nn
 
-from monai.networks.blocks import UnetrBasicBlock, UnetrPrUpBlock, UnetrUpBlock
+#from monai.networks.blocks import UnetrBasicBlock, UnetrPrUpBlock, UnetrUpBlock
+from .unetr_block import UnetrBasicBlock,UnetrPrUpBlock,UnetrUpBlock
 from monai.networks.blocks.dynunet_block import UnetOutBlock
-from monai.networks.nets import ViT
+# from monai.networks.nets import ViT
+from .my_ViT import ViT
 
 
 class UNETR(nn.Module):

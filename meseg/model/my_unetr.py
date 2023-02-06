@@ -4,6 +4,22 @@ import torch.nn as nn
 import torch.nn.functional as F
 import math
 
+class PatchEmbed(nn.Module):
+    def __init__(self,input_dim,embed_dim,patch_size):
+        super().__init__()
+        self.conv1 = nn.Conv3d(in_channels=input_dim, out_channels=embed_dim, kernel_size=patch_size, stride=patch_size)
+        self.norm = nn.BatchNorm3d(embed_dim)
+        self.conv2  = nn.Conv3d(embed_dim, embed_dim, kernel_size=1, stride=1)
+        self.relu = nn.ReLU(inplace=True)
+
+    def forward(self, x):
+        x = self.conv1(x)
+        x = self.relu(x)
+        x = self.norm(x)
+        x = self.conv2(x)
+
+        return x
+
 
 class SingleDeconv3DBlock(nn.Module):
     def __init__(self, in_planes, out_planes):
@@ -146,8 +162,9 @@ class Embeddings(nn.Module):
         self.n_patches = int((cube_size[0] * cube_size[1] * cube_size[2]) / (patch_size * patch_size * patch_size))
         self.patch_size = patch_size
         self.embed_dim = embed_dim
-        self.patch_embeddings = nn.Conv3d(in_channels=input_dim, out_channels=embed_dim,
-                                          kernel_size=patch_size, stride=patch_size)
+        # self.patch_embeddings = nn.Conv3d(in_channels=input_dim, out_channels=embed_dim,
+        #                                   kernel_size=patch_size, stride=patch_size)
+        self.patch_embeddings = PatchEmbed(input_dim, embed_dim, patch_size)
         self.position_embeddings = nn.Parameter(torch.zeros(1, self.n_patches, embed_dim))
         self.dropout = nn.Dropout(dropout)
 
@@ -314,7 +331,7 @@ if __name__ == '__main__':
     x = torch.rand(2,1,96,96,96)
     print('practice unetr')
     print(x.shape)
-    model = UNETR((96,96,96),1,14,mul_head=3)
+    model = UNETR2((96,96,96),1,14,mul_head=3)
     y = model(x)
     print(f"input of model shape:{x.shape}") 
     print(f"output of model shape:{y.shape}") 
