@@ -34,7 +34,7 @@ table of contents:
 2. Make a symbolic link for datasets and pre-trained weights.
 
    ```bash
-   ln -s ~/shared/hdd_ext/nvme1/medical data
+   ln -s ~/shared/hdd_ext/hdd3000/medical data
    ```
 
 3. Check `argparser`'s 3 important default options in `train.py`: `project_name`, `who`, and `output_dir`.

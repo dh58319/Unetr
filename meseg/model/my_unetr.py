@@ -3,6 +3,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import math
+from monai.networks.nets import SwinUNETR
 
 
 class Conv2dSamePadding(nn.Conv2d):
@@ -24,7 +25,7 @@ class Conv2dSamePadding(nn.Conv2d):
         return F.conv2d(x, self.weight, self.bias, self.stride, self.padding, self.dilation, self.groups)
 
 class DLA(nn.Module):
-    def __init__(self, inp, oup, kernel_size=3, stride=1, expand_ratio=3, refine_mode='none'):
+    def __init__(self, inp, oup, kernel_size=3, stride=1, expand_ratio=3, refine_mode='conv'):
         super(DLA, self).__init__()
         """
             Distributed Local Attention used for refining the attention map.
@@ -40,7 +41,7 @@ class DLA(nn.Module):
         if refine_mode == 'conv':
             self.conv = Conv2dSamePadding(hidden_dim, hidden_dim, (kernel_size, kernel_size), stride, (1, 1), groups=1,
                                           bias=False)
-        elif refine_mode == 'conv_exapnd':
+        elif refine_mode == 'conv_expand':
             if self.expand_ratio != 1:
                 self.conv_exp = Conv2dSamePadding(inp, hidden_dim, 1, 1, bias=False)
                 self.bn1 = nn.BatchNorm2d(hidden_dim)
@@ -92,17 +93,17 @@ class PatchEmbed(nn.Module):
         self.norm = nn.BatchNorm3d(embed_dim)
         self.se = SELayer(embed_dim)
         self.conv2  = nn.Conv3d(embed_dim, embed_dim, kernel_size=1, stride=1)
-        self.relu = nn.ReLU(inplace=True)
+        self.relu = nn.ReLU6(inplace=True)
 
     def forward(self, x):
         v = x
         x = self.conv1(x)
         x = self.relu(x)
         x = self.norm(x)
-       # x = self.se(x)
         x = self.conv2(x)
         x = self.relu(x)
         x = self.norm(x)
+        x = self.se(x)
 
         return x
 
@@ -234,12 +235,19 @@ class PositionwiseFeedForward(nn.Module):
     def __init__(self, d_model=786, d_ff=2048, dropout=0.1):
         super().__init__()
         # Torch linears have a `b` by default.
-        self.w_1 = nn.Linear(d_model, d_ff)
+        self.w_1 = nn.Linear(d_model, d_ff)#2,216,2048
         self.w_2 = nn.Linear(d_ff, d_model)
         self.dropout = nn.Dropout(dropout)
 
     def forward(self, x):
-        return self.w_2(self.dropout(F.relu(self.w_1(x))))
+        x = self.w_1(x)
+        print("w1",x.shape)
+        #x = self.conv(x)
+        x = F.gelu(x)
+        x = self.dropout(x)
+        x = self.w_2(x)
+        print("w2",x.shape)
+        return x
 
 
 class Embeddings(nn.Module):
@@ -263,21 +271,54 @@ class Embeddings(nn.Module):
         return embeddings
 
 
+class Mlp(nn.Module):
+    def __init__(self, in_features, hidden_features=None, out_features=None, act_layer=nn.GELU, drop=0.):
+        super().__init__()
+        out_features = out_features or in_features
+        hidden_features = hidden_features or in_features
+        self.conv1 = nn.Sequential(
+            #conv3d 2,2048,6,6,6
+            nn.Conv3d(in_features, hidden_features, 1, 1, 0, bias=True),
+            nn.GELU(),
+            nn.BatchNorm2d(hidden_features, eps=1e-5),
+        )
+        self.proj = nn.Conv2d(hidden_features, hidden_features, 3, 1, 1, groups=hidden_features)
+        self.proj_act = nn.GELU()
+        self.proj_bn = nn.BatchNorm2d(hidden_features, eps=1e-5)
+        self.conv2 = nn.Sequential(
+            nn.Conv2d(hidden_features, out_features, 1, 1, 0, bias=True),
+            nn.BatchNorm2d(out_features, eps=1e-5),
+        )
+        self.drop = nn.Dropout(drop)
+
+    def forward(self, x):
+        B, N, C = x.shape
+        H,W,R = 6,6,6
+        x = x.permute(0, 2, 1).reshape(2,768,6,6,6)
+        x = self.conv1(x)
+        x = self.drop(x)
+        x = self.proj(x) + x
+        x = self.proj_act(x)
+        x = self.proj_bn(x)
+        x = self.conv2(x)
+        x = x.flatten(2).permute(0, 2, 1)
+        x = self.drop(x)
+        return x
 class TransformerBlock(nn.Module):
     def __init__(self, embed_dim, num_heads, dropout, cube_size, patch_size, mul_head=1):
         super().__init__()
         self.attention_norm = nn.LayerNorm(embed_dim, eps=1e-6)
         self.mlp_norm = nn.LayerNorm(embed_dim, eps=1e-6)
         self.mlp_dim = int((cube_size[0] * cube_size[1] * cube_size[2]) / (patch_size * patch_size * patch_size))
-        self.mlp = PositionwiseFeedForward(embed_dim, 2048)
+        #self.mlp = PositionwiseFeedForward(embed_dim, 2048)
+        self.mlp = Mlp(embed_dim, hidden_features=2048, out_features=embed_dim)
         self.attn = SelfAttention(num_heads, embed_dim, dropout, mul_head= mul_head)
-        self.attn_refine = Refined_Attention(dim= embed_dim,num_heads=num_heads,attn_drop= dropout)
-
+        self.attn_refine = Refined_Attention(dim= embed_dim,num_heads=num_heads,attn_drop= dropout, refine_mode='conv')
     def forward(self, x):
         h = x
         x = self.attention_norm(x)
-        #x, weights = self.attn(x)
-        x,weights= self.attn_refine(x)
+        x, weights = self.attn(x)
+        #x,weights= self.attn_refine(x)
         x = x + h
         h = x
         x = self.mlp_norm(x)
@@ -312,7 +353,7 @@ class Transformer(nn.Module):
 
 class Refined_Attention(nn.Module):
     def __init__(self, dim, num_heads=8, qkv_bias=False, qk_scale=None, attn_drop=0., proj_drop=0., expansion_ratio=3,
-                 share_atten=False, apply_transform=True, refine_mode='conv_exapnd', kernel_size=3, head_expand=1):
+                 share_atten=False, apply_transform=True, refine_mode='conv', kernel_size=3, head_expand=3):
         """
             refine_mode: "conv" represents only convolution is used for refining the attention map;
                          "conv-expand" represents expansion and conv are used together for refining the attention map;
@@ -370,7 +411,7 @@ class Refined_Attention(nn.Module):
 
 
 class UNETR2(nn.Module):
-    def __init__(self, img_shape=(128, 128, 128), input_dim=4, output_dim=3, embed_dim=768, patch_size=16, num_heads=12, dropout=0.1,mul_head=1):
+    def __init__(self, img_shape=(96, 96, 96), input_dim=4, output_dim=3, embed_dim=768, patch_size=16, num_heads=12, dropout=0.1,mul_head=1):
         super().__init__()
         self.input_dim = input_dim
         self.output_dim = output_dim
@@ -404,7 +445,8 @@ class UNETR2(nn.Module):
         self.decoder0 = \
             nn.Sequential(
                 Conv3DBlock(input_dim, 32, 3),
-                Conv3DBlock(32, 64, 3)
+                Conv3DBlock(32, 64, 3),
+                SELayer(64)
             )
 
         self.decoder3 = \
@@ -438,6 +480,7 @@ class UNETR2(nn.Module):
             nn.Sequential(
                 Conv3DBlock(512, 256),
                 Conv3DBlock(256, 256),
+                SELayer(256),
                 SingleDeconv3DBlock(256, 128)
             )
 
@@ -452,6 +495,7 @@ class UNETR2(nn.Module):
             nn.Sequential(
                 Conv3DBlock(128, 64),
                 Conv3DBlock(64, 64),
+                SELayer(64),
                 SingleConv3DBlock(64, output_dim, 1)
             )
 
@@ -459,9 +503,13 @@ class UNETR2(nn.Module):
         z = self.transformer(x)
         z0, z3, z6, z9, z12 = x, *z
         z3 = z3.transpose(-1, -2).view(-1, self.embed_dim, *self.patch_dim)
+        print("z3shape=",z3.shape)
         z6 = z6.transpose(-1, -2).view(-1, self.embed_dim, *self.patch_dim)
+        print("z6shape=",z6.shape)
         z9 = z9.transpose(-1, -2).view(-1, self.embed_dim, *self.patch_dim)
+        print("z9shape=",z9.shape)
         z12 = z12.transpose(-1, -2).view(-1, self.embed_dim, *self.patch_dim)
+        print("z12shape=",z12.shape)
 
         z12 = self.decoder12_upsampler(z12)
         z9 = self.decoder9(z9)
