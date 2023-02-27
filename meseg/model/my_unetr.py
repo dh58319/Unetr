@@ -74,7 +74,7 @@ class SELayer(nn.Module):
         self.avg_pool = nn.AdaptiveAvgPool3d(1)
         self.fc = nn.Sequential(
                 nn.Linear(channel, channel // reduction),
-                nn.ReLU(inplace=True),
+                nn.ReLU6(inplace=True),
                 nn.Linear(channel // reduction, channel),
                 nn.Sigmoid()
         )
@@ -103,7 +103,7 @@ class PatchEmbed(nn.Module):
         x = self.conv2(x)
         x = self.relu(x)
         x = self.norm(x)
-        x = self.se(x)
+        #x = self.se(x)
 
         return x
 
@@ -220,14 +220,20 @@ class SelfAttention(nn.Module):
 class Mlp(nn.Module):
     def __init__(self, in_features, act_layer=nn.GELU, drop=0.):
         super().__init__()
-        self.fc1 = nn.Linear(in_features, in_features)
+        self.fc1 = nn.Linear(in_features, in_features * 4)
+        self.conv = nn.Conv1d(in_channels=in_features, out_channels=in_features, kernel_size=1)
         self.act = act_layer()
         self.drop = nn.Dropout(drop)
+        self.fc2 = nn.Linear(in_features*4, in_features)
 
     def forward(self, x):
-        x = self.fc1()
+        #print("input dim",x.shape)
+        x = self.fc1(x)
+        #x = self.conv(x)
         x = self.act(x)
         x = self.drop(x)
+        x = self.fc2(x)
+
         return x
 
 
@@ -271,39 +277,6 @@ class Embeddings(nn.Module):
         return embeddings
 
 
-class Mlp(nn.Module):
-    def __init__(self, in_features, hidden_features=None, out_features=None, act_layer=nn.GELU, drop=0.):
-        super().__init__()
-        out_features = out_features or in_features
-        hidden_features = hidden_features or in_features
-        self.conv1 = nn.Sequential(
-            #conv3d 2,2048,6,6,6
-            nn.Conv3d(in_features, hidden_features, 1, 1, 0, bias=True),
-            nn.GELU(),
-            nn.BatchNorm2d(hidden_features, eps=1e-5),
-        )
-        self.proj = nn.Conv2d(hidden_features, hidden_features, 3, 1, 1, groups=hidden_features)
-        self.proj_act = nn.GELU()
-        self.proj_bn = nn.BatchNorm2d(hidden_features, eps=1e-5)
-        self.conv2 = nn.Sequential(
-            nn.Conv2d(hidden_features, out_features, 1, 1, 0, bias=True),
-            nn.BatchNorm2d(out_features, eps=1e-5),
-        )
-        self.drop = nn.Dropout(drop)
-
-    def forward(self, x):
-        B, N, C = x.shape
-        H,W,R = 6,6,6
-        x = x.permute(0, 2, 1).reshape(2,768,6,6,6)
-        x = self.conv1(x)
-        x = self.drop(x)
-        x = self.proj(x) + x
-        x = self.proj_act(x)
-        x = self.proj_bn(x)
-        x = self.conv2(x)
-        x = x.flatten(2).permute(0, 2, 1)
-        x = self.drop(x)
-        return x
 class TransformerBlock(nn.Module):
     def __init__(self, embed_dim, num_heads, dropout, cube_size, patch_size, mul_head=1):
         super().__init__()
@@ -311,7 +284,7 @@ class TransformerBlock(nn.Module):
         self.mlp_norm = nn.LayerNorm(embed_dim, eps=1e-6)
         self.mlp_dim = int((cube_size[0] * cube_size[1] * cube_size[2]) / (patch_size * patch_size * patch_size))
         #self.mlp = PositionwiseFeedForward(embed_dim, 2048)
-        self.mlp = Mlp(embed_dim, hidden_features=2048, out_features=embed_dim)
+        self.mlp = Mlp(embed_dim, nn.GELU, dropout)
         self.attn = SelfAttention(num_heads, embed_dim, dropout, mul_head= mul_head)
         self.attn_refine = Refined_Attention(dim= embed_dim,num_heads=num_heads,attn_drop= dropout, refine_mode='conv')
     def forward(self, x):
@@ -446,7 +419,7 @@ class UNETR2(nn.Module):
             nn.Sequential(
                 Conv3DBlock(input_dim, 32, 3),
                 Conv3DBlock(32, 64, 3),
-                SELayer(64)
+                #SELayer(64)
             )
 
         self.decoder3 = \
@@ -466,7 +439,10 @@ class UNETR2(nn.Module):
             Deconv3DBlock(embed_dim, 512)
 
         self.decoder12_upsampler = \
+            nn.Sequential(
             SingleDeconv3DBlock(embed_dim, 512)
+            ,SELayer(512)
+            )
 
         self.decoder9_upsampler = \
             nn.Sequential(
@@ -480,7 +456,7 @@ class UNETR2(nn.Module):
             nn.Sequential(
                 Conv3DBlock(512, 256),
                 Conv3DBlock(256, 256),
-                SELayer(256),
+                #SELayer(256),
                 SingleDeconv3DBlock(256, 128)
             )
 
@@ -495,7 +471,7 @@ class UNETR2(nn.Module):
             nn.Sequential(
                 Conv3DBlock(128, 64),
                 Conv3DBlock(64, 64),
-                SELayer(64),
+                #SELayer(64),
                 SingleConv3DBlock(64, output_dim, 1)
             )
 
@@ -503,13 +479,13 @@ class UNETR2(nn.Module):
         z = self.transformer(x)
         z0, z3, z6, z9, z12 = x, *z
         z3 = z3.transpose(-1, -2).view(-1, self.embed_dim, *self.patch_dim)
-        print("z3shape=",z3.shape)
+
         z6 = z6.transpose(-1, -2).view(-1, self.embed_dim, *self.patch_dim)
-        print("z6shape=",z6.shape)
+
         z9 = z9.transpose(-1, -2).view(-1, self.embed_dim, *self.patch_dim)
-        print("z9shape=",z9.shape)
+
         z12 = z12.transpose(-1, -2).view(-1, self.embed_dim, *self.patch_dim)
-        print("z12shape=",z12.shape)
+
 
         z12 = self.decoder12_upsampler(z12)
         z9 = self.decoder9(z9)
